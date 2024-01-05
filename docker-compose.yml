@@ -1,0 +1,10 @@
+version: "3.1"
+services:
+     rasa:
+      image: rasa/rasa:latest
+      ports:
+       - 5005:5005
+      volumes:
+       - ./:/app
+      command:
+       - shell
