@@ -1,0 +1,58 @@
+version: "3.1"
+
+stories:
+
+- story: greet_start
+  steps:
+    - intent: greet
+    - action: utter_ask
+    - intent: menu
+    - action: utter_menu
+    # - intent: order_pizza
+    # - active_loop: 
+    # - action: utter_confirm
+
+
+- story: greet_start_2
+  steps:
+    - intent: greet
+    - action: utter_ask
+    - intent: request_init
+    - action: utter_answer_request
+    - action: utter_menu
+    # - intent: order_pizza
+    # - action: utter_confirm
+
+- story: no_greet_start
+  steps: 
+    - intent: request_init
+    - action: utter_answer_request
+    - action: utter_menu
+    # - intent: order_pizza
+    # - action: utter_confirm
+
+- story: change_order_1
+  steps:
+    - intent: order_change
+    - action: action_change_order
+
+- story: change_order_2
+  steps:
+    - intent: response_negative
+    - action: utter_ask_change
+    - intent: order_change
+    - action: action_change_order
+
+- story: order_confirmed
+  steps: 
+    - intent: response_positive
+    - action: utter_T_or_D
+    - intent: take_away
+    - action: action_reset_pizza_form
+    - action: utter_takeaway_confirm
+
+
+
+
+
+

@@ -1,0 +1,148 @@
+version: "3.1"
+
+intents:
+  - greet
+  - name
+  - order_pizza
+  - request_init
+  - item_amount
+  - item_size
+  - item_type
+  - order_change
+  - take_away
+  - delivery
+  - address
+  - phone_num
+  - menu
+  - response_positive
+  - response_negative
+  # - bot_challenge
+
+slots:
+  name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: name
+  
+  address:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: address
+
+  phone:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: phone
+      
+  pizza_size:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: pizza_size
+
+  pizza_amount:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: pizza_amount
+    
+  pizza_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: pizza_type
+
+entities: 
+  - pizza_amount
+  - pizza_size
+  - pizza_type
+  - address
+  - phone
+  - total_order
+  - name
+
+forms:
+  order_form:
+    required_slots:
+    - pizza_type
+    - pizza_amount
+    - pizza_size
+
+  delivery_form:
+    required_slots:
+    - name
+    - address
+    - phone
+
+responses:
+  utter_greet:
+  - text: "Hey, whats your name?"
+  - text: "Hello there, whats your name"
+  - text: "Hi, please let us know your name"
+
+  utter_ask:
+  - text: "Hi, Welcome to 3H pizza. What do you want? "
+  - text: "Hello, Welcome to 3H Pizza, What can we get you? "
+
+  utter_answer_request:
+  - text: " Sure!! What do you like to Order"
+
+  utter_ask_change:
+  - text: "Okay, Would you tell us your modified order "
+  
+  utter_ask_address:
+  - text: "What is your address ?"
+
+  utter_ask_name:
+  - text: "What is your name ?"
+
+  utter_ask_phone:
+  - text: " Whats your phone number"
+
+  utter_T_or_D:
+  - text: "Would you like take away or delivery"
+
+  utter_takeaway_confirm:
+  - text: "---- YOUR ORDER ----- \n Pizza quantity: {pizza_amount} \n Pizza Type: {pizza_type} \n Pizza Size: {pizza_size} \n Your order will be ready in 15 mins. you can pick your order soon.\n Thanks for ordering from 3H PIZZA"
+
+  utter_delivery_confirm:
+  - text: "---- YOUR ORDER ----- \n Pizza quantity: {pizza_amount} \n Pizza Type: {pizza_type} \n Pizza Size: {pizza_size} \n ADDRESS: {address} \n PHONE: {phone} \n\n your order will be delivered soon. Thanks for ordering from 3H PIZZA"
+
+  utter_goodbye:
+  - text: " Thanks for ordering from 3H PIZZA. Have a good day....."
+
+
+  utter_ask_pizza_size:
+  - text: " What is the size of the Pizza that you want to order ?"
+  utter_ask_pizza_type:
+  - text: " what type of pizza would you like ?"
+  utter_ask_pizza_amount:
+  - text: " What is the amount of the Pizza that you want to order ?"
+
+
+  utter_menu:
+  - text: "Here's Our Menu \n ====== MENU =====\n\n ---Sizes--- \n -small \n -medium \n -large \n\n --- PIZZA CATEGORY --- \n vegeterian Pizza \n Margerita Pizza \n pesto pizza \n sausage pizza \n pepperoni \n barbeque pizza \n Mashroom Pizza \n Alfredo Pizza \n "
+
+  utter_please_rephrase:
+  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+
+  # utter_iamabot:
+  # - text: "I am a bot, powered by Rasa."
+
+actions:
+  - submit_order_form
+  - action_change_order
+  - action_pizza_order_add
+  - action_reset_pizza_form
+  - action_pizza_questions
+  - submit_delivery_form
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

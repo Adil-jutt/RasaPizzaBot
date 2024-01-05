@@ -1,0 +1,212 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: response_negative
+  examples: |
+    - actually no
+    - nope
+    - no
+    - Nope
+    - No, I want to make a change
+    - Noo
+    - that's incorrect
+    - no thats not right
+    - wrong
+    
+
+- intent: response_positive
+  examples: |
+    - all good
+    - yeah all is sgood 
+    - yep
+    - yeah
+    - perfect
+    - yes, that is right
+    - yes
+    - that's right
+    - correct
+    - Yes
+    - Yeah
+
+- intent: name
+  examples: |
+    - Hi, I am [Adil](name)
+    - My name is [Mike](name)
+    - [Paul](name)
+    - Its [Ali](name)
+
+- intent: menu
+  examples: |
+    - Can I get the menu please
+    - do you have the menu
+    - menu
+    - show me the menu
+    - what kind of pizza do you have
+    - what do you have 
+    - Can I see the menu
+    - Menu please
+
+- intent: order_pizza
+  examples: |
+    - I'd like to order [three](pizza_amount) [large](pizza_size) [vegetarian](pizza_type) pizzas, please.
+    - Order [four](pizza_amount) [medium](pizza_size) [margherita](pizza_type) pizzas.
+    - Can I get [one](pizza_amount) [small](pizza_size) [hawaiian](pizza_type) pizza?
+    - Let's do [two](pizza_amount) [extra-large](pizza_size) [supreme](pizza_type) pizzas.
+    - I want to order [five](pizza_amount) [personal](pizza_size) [cheese](pizza_type) pizzas, please.
+    - Order [3](pizza_amount) [medium](pizza_size) [pepperoni](pizza_type) pizzas.
+    - Can you deliver [two](pizza_amount) [large](pizza_size) [sausage](pizza_type) pizzas?
+    - I'd like to try [4](pizza_amount) [small](pizza_size) [pesto chicken](pizza_type) pizzas.
+    - Make it [one](pizza_amount) [extra-large](pizza_size) [meat lover's](pizza_type) pizza, please.
+    - Can I order [six](pizza_amount) [medium](pizza_size) [veggie](pizza_type) pizzas for delivery?
+    - I want [2](pizza_amount) [personal](pizza_size) [white sauce](pizza_type) pizzas.
+    - Order [three](pizza_amount) [large](pizza_size) [buffalo chicken](pizza_type) pizzas.
+    - Let's do [five](pizza_amount) [small](pizza_size) [mushroom](pizza_type) pizzas.
+    - Can you make [two](pizza_amount) [medium](pizza_size) [spinach and feta](pizza_type) pizzas?
+    - I'd like to order [four](pizza_amount) [large](pizza_size) [barbecue chicken](pizza_type) pizzas.
+    - Order [3](pizza_amount) [personal](pizza_size) [vegan](pizza_type) pizzas, please.
+    - Can I get [one](pizza_amount) [medium](pizza_size) [margarita](pizza_type) pizza for pickup?
+    - I want [6](pizza_amount) [large](pizza_size) [pepperoni](pizza_type) pizzas delivered.
+    - Make it [two](pizza_amount) [small](pizza_size) [alfredo](pizza_type) pizzas, please.
+    - Can you deliver [three](pizza_amount) [medium](pizza_size) [hawaiian](pizza_type) pizzas to my address?
+    - I want to order a [large](pizza_size) pizza 
+    - [Margherita](pizza_type) pizza 
+    - [Hawaii](pizza_type) pizza 
+    - [Pepperoni](pizza_type) pizza 
+    - [Vegetarian](pizza_type) pizza pizza 
+    - [Funghi](pizza_type) 
+    - [Margherita](pizza_type) 
+    - [Hawaii](pizza_type) 
+    - [Pepperoni](pizza_type)
+    - [Vegetarian](pizza_type)
+    - [hawaii](pizza_type) pizza small
+    - [hawaii](pizza_type) pizza small please
+    - small [hawaii](pizza_type) pizza
+    - [two](pizza_amount) [medium](pizza_size) pizza [marherita](pizza_type) please
+    - [jumbo](pizza_type)
+    - [two](pizza_amount)
+    - [3](pizza_amount)
+    - [two](pizza_amount) please
+    - [2](pizza_amount) please
+    - [large](pizza_size) please
+    - [large](pizza_size)
+    - just [one](pizza_amount)
+    - just [1](pizza_amount)
+    - [one](pizza_amount) pizza [funghi](pizza_type)
+    - i'd like [three](pizza_amount) [medium](pizza_size) pizza [margherita](pizza_type)
+    - I'd like to order [3](pizza_amount)  [small](pizza_size) [hawaii](pizza_type) please
+
+- intent: request_init
+  examples: |
+    - I want to order the pizza
+    - Pizza please
+    - pizza
+    - I would like to order a pizza
+    - piza
+    - I need Pizza
+    - order pizza
+    - oder pizza
+    - Hey, I want to order a pizza
+
+- intent: take_away
+  examples: |
+    - take away
+    - i prefer take away
+    - take away please
+
+- intent: delivery
+  examples: |
+    - delivery
+    - i prefer delivery
+    - delivery please
+    - I would like the order to be delivered
+
+- intent: order_change
+  examples: |
+    - I changed my mind. Can I get  a [funghi](pizza_type) instead?
+    - I'd like a  [margherita](pizza_type) pizza instead.
+    - can i get a [vegetarian](pizza_type) instead?
+    - actually , can I get [margherita](pizza_type)?
+    - actually , i 'd like [small](pizza_size) pizza.
+    - I'd like in [small](pizza_size) instead.
+    - actually, i would like a [small](pizza_size) [vegetarian](pizza_type).
+    - wait, can i get  it in [large](pizza_size).
+    - I want [funghi](pizza_type)
+    - I want [funghi](pizza_type) instead
+    - I want to change the size to [medium](pizza_size)
+    - I want to change the size to [large](pizza_size)
+    - I want my pizza in [small](pizza_size) instead
+    - make it [2](pizza_amount) instead
+    - I would like [three](pizza_amount)
+
+- intent: address
+  examples: |
+    - my address is [#46, 655 avenue du technopole](address)
+    - [#46, 655 avenue du technopole](address)
+    - [house number 46 street 655 shah Faisal colony](address)
+    - [house num 46  655 avenue du technopole street](address)
+    - [Hs No 46  street 6, johar block 9](address)
+    - [saima residency, house no 67, johar Block 8](address)
+    - [Flat# 27, felix heights, gulshan karachi](address)
+    - [Hs No. 46  block 10, gulshan , karachi](address)
+    - [house number 2 street no 655, Bahria town](address)
+    - my address is [house num 10 street no 9, Airport colony](address)
+    - [Hs No 225, stadium road, street 4, Dalmia colony](address) 
+    - my address is [Nazimabad block 3, Hs No. 21 street 8](address)
+
+- intent: phone_num
+  examples: |
+    - its [03491234789](phone)
+    - yeah its [+92312875556](phone)
+    - my phone number is [03249861247](phone)
+    - [03479855473](phone)
+
+# - intent: item_type
+#   examples: |
+#     - [hawaii](pizza_type)
+#     - [margherita](pizza_type)
+
+# - intent: item_size
+#   examples: |
+#     - [small](pizza_size)
+#     - [large](pizza_size)
+#     - I want to order Large pizza
+#     - I want a Laarg pizza
+#     - I think its laarge
+#     - medim piza
+#     - huge pizza
+#     - Little piza
+#     - Probably avg
+#     - smll
+#     - lrg
+#     - midum
+#     - large
+
+# - intent: item_amount
+#   examples: |
+#     - [3](pizza_amount)
+#     - [2](pizza_amount)
+#     - just [1](pizza_amount)
+#     - [three](pizza_amount)
+
+# - intent: bot_challenge
+#   examples: |
+#     - are you a bot?
+#     - are you a human?
+#     - am I talking to a bot?
+#     - am I talking to a human?
